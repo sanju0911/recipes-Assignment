@@ -19,20 +19,20 @@ const RecipeCard = ({ info }) => {
 
   return (
     <div
-      className="recipe-card border rounded-xl p-4 m-3 bg-white shadow-lg transform transition-transform hover:scale-105 hover:shadow-xl cursor-pointer w-72 overflow-hidden"
-      style={{ height: "450px" }}
+      className="recipe-card border border-gray-200 rounded-xl p-6 m-3 bg-gradient-to-r from-blue-50 via-white to-green-50 shadow-xl transform transition-transform hover:scale-105 hover:shadow-2xl cursor-pointer w-80 overflow-hidden"
+      style={{ height: "500px" }}
     >
       {info.image && (
         <img
           src={info.image || "default-image.jpg"}
           alt={info.title}
-          className="w-full h-40 object-cover rounded-t-xl mb-2"
+          className="w-full h-44 object-cover rounded-t-xl mb-4 shadow-md"
         />
       )}
-      <h2 className="text-xl font-bold text-gray-800 hover:text-green-600 transition-colors duration-300 mb-1">
+      <h2 className="text-2xl font-bold text-gray-900 hover:text-green-700 transition-colors duration-300 mb-2">
         {info.title}
       </h2>
-      <p className="text-gray-600 text-sm mb-2 italic">
+      <p className="text-gray-600 text-sm mb-4 italic">
         {info.desc || "No description available"}
       </p>
       <div className="mt-2 text-sm text-gray-800">
@@ -57,7 +57,7 @@ const RecipeCard = ({ info }) => {
                     e.stopPropagation();
                     handleShowMoreCategories();
                   }}
-                  className="text-green-600 underline text-sm mt-1 hover:text-green-500 transition duration-200"
+                  className="text-blue-600 underline text-sm mt-1 hover:text-blue-400 transition duration-200"
                 >
                   {showMoreCategories ? "Show Less" : "Show More"}
                 </button>
@@ -96,7 +96,7 @@ const RecipeCard = ({ info }) => {
                     e.stopPropagation();
                     handleShowMoreIngredients();
                   }}
-                  className="text-green-600 underline text-sm mt-1 hover:text-green-500 transition duration-200"
+                  className="text-blue-600 underline text-sm mt-1 hover:text-blue-400 transition duration-200"
                 >
                   {showMoreIngredients ? "Show Less" : "Show More"}
                 </button>

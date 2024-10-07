@@ -1,20 +1,19 @@
-
-const client = require('./utils/openSearchClient');
+const client = require("./utils/openSearchClient");
 
 async function searchRecipes() {
   try {
     const response = await client.search({
-      index: 'epirecipes',
+      index: "epirecipes",
       body: {
         query: {
-          match_all: {}
-        }
-      }
+          match_all: {},
+        },
+      },
     });
 
-    console.log('Search results:', response.body.hits.hits);
+    console.log("Search results:", response.body.hits.hits);
   } catch (error) {
-    console.error('Error searching recipes:', error);
+    console.error("Error searching recipes:", error);
   }
 }
 

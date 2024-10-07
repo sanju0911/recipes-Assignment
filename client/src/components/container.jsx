@@ -11,7 +11,7 @@ const RecipeContainer = () => {
   const [error, setError] = useState(null);
   const [filter, setFilter] = useState({});
   const [searchInput, setSearchInput] = useState("");
-  const itemsPerPage = 10;
+  const itemsPerPage = 8;
   const { searchQuery, setSearchQuery } = useOutletContext();
 
   useEffect(() => {
@@ -23,6 +23,7 @@ const RecipeContainer = () => {
           size: itemsPerPage,
         });
 
+        // Only append search query if searchInput or searchQuery is present
         if (searchInput) {
           searchParams.append("q", searchInput);
         } else if (searchQuery) {
@@ -91,7 +92,8 @@ const RecipeContainer = () => {
 
   const handleSearchButtonClick = () => {
     console.log("Search button clicked with input:", searchInput);
-    setSearchQuery(searchInput);
+
+    setSearchQuery(searchInput.trim() === "" ? "" : searchInput);
     setCurrentPage(1);
   };
 
@@ -109,6 +111,12 @@ const RecipeContainer = () => {
           onChange={(e) => setSearchInput(e.target.value)}
           className="border rounded-lg px-4 py-2 mr-2"
         />
+        {/* <button
+          onClick={handleSearchButtonClick}
+          className="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition duration-300"
+        >
+          Search
+        </button> */}
       </div>
 
       <CategoryFilter onFilterChange={handleKeywordFilterChange} />
