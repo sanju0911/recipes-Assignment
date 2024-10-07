@@ -1,0 +1,20 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+    @apply bg-gradient-to-b from-gray-100 to-gray-300;
+}
+
+.boxScroll::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+}
+
+main {
+    @apply flex justify-center items-center;
+}
+
+.category-filter {
+    @apply bg-gradient-to-r from-white to-gray-100 border-gray-300;
+}

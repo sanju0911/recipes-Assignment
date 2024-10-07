@@ -1,0 +1,11 @@
+body {
+  font-family: "Roboto", sans-serif;
+}
+
+.recipe-card {
+  transition: transform 0.2s;
+}
+
+.recipe-card:hover {
+  transform: scale(1.05);
+}
