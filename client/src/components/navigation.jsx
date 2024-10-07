@@ -24,14 +24,14 @@ function NavBar({ onSearch, onFilterChange }) {
 
   const handleSearch = () => {
     if (searchQuery.trim()) {
-      onSearch(searchQuery); 
-      setSearchQuery(""); 
+      onSearch(searchQuery);
+      setSearchQuery("");
     }
   };
 
   const handleKeyDown = (e) => {
     if (e.key === "Enter") {
-      handleSearch(); // Search when "Enter" is pressed
+      handleSearch();
     }
   };
 
@@ -60,30 +60,27 @@ function NavBar({ onSearch, onFilterChange }) {
   return (
     <nav className="bg-gradient-to-r from-purple-600 to-indigo-500 shadow-lg fixed top-0 left-0 w-full z-50">
       <div className="container mx-auto h-16 flex items-center justify-between px-4">
-        {/* Brand Name */}
         <div className="text-white font-bold text-2xl">
           <strong>Uniquerecipes</strong>
         </div>
 
-        {/* Search Bar */}
         <div className="flex items-center w-full max-w-lg border-2 border-white rounded-full p-2 bg-white shadow-lg mx-4">
           <input
             type="text"
             placeholder="Search for recipes..."
             className="w-full px-4 py-2 rounded-l-full outline-none focus:ring-2 focus:ring-purple-400 transition duration-200"
             value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)} // Update state on input change
-            onKeyDown={handleKeyDown} // Trigger search on Enter key press
+            onChange={(e) => setSearchQuery(e.target.value)}
+            onKeyDown={handleKeyDown}
           />
           <button
-            onClick={handleSearch} // Trigger search on button click
+            onClick={handleSearch}
             className="flex items-center justify-center h-10 w-10 bg-red-600 rounded-full hover:bg-red-700 transition duration-200"
           >
             <FaSearch className="text-white" />
           </button>
         </div>
 
-        {/* Filters Toggle Button */}
         <div className="relative">
           <button
             onClick={handleFilterToggle}
@@ -92,7 +89,6 @@ function NavBar({ onSearch, onFilterChange }) {
             {filtersVisible ? "Hide Filters" : "Show Filters"}
           </button>
 
-          {/* Filter Options Dropdown */}
           {filtersVisible && (
             <div className="absolute top-16 right-0 bg-white shadow-lg rounded-lg p-4 z-10 w-64">
               <h3 className="font-bold text-lg mb-2">Filters</h3>
@@ -124,7 +120,6 @@ function NavBar({ onSearch, onFilterChange }) {
           )}
         </div>
 
-        {/* User Profile/Placeholder */}
         <div className="text-white text-2xl cursor-pointer">
           <strong>sanjay janardhan</strong>
         </div>
