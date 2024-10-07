@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useOutletContext } from "react-router-dom";
 import summaryApi from "../api/index";
-import CategoryFilter from "./Filter";
+import CategoryFilter from "./RecipeFilter";
 import "../index.css";
 
 const RecipeContainer = () => {
@@ -10,9 +10,9 @@ const RecipeContainer = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [error, setError] = useState(null);
   const [filter, setFilter] = useState({});
-  const [searchInput, setSearchInput] = useState(""); 
+  const [searchInput, setSearchInput] = useState("");
   const itemsPerPage = 10;
-  const { searchQuery, setSearchQuery } = useOutletContext(); 
+  const { searchQuery, setSearchQuery } = useOutletContext();
 
   useEffect(() => {
     const fetchRecipes = async () => {
@@ -23,7 +23,6 @@ const RecipeContainer = () => {
           size: itemsPerPage,
         });
 
-        
         if (searchInput) {
           searchParams.append("q", searchInput);
         } else if (searchQuery) {
@@ -92,8 +91,8 @@ const RecipeContainer = () => {
 
   const handleSearchButtonClick = () => {
     console.log("Search button clicked with input:", searchInput);
-    setSearchQuery(searchInput); 
-    setCurrentPage(1); 
+    setSearchQuery(searchInput);
+    setCurrentPage(1);
   };
 
   return (
@@ -110,12 +109,6 @@ const RecipeContainer = () => {
           onChange={(e) => setSearchInput(e.target.value)}
           className="border rounded-lg px-4 py-2 mr-2"
         />
-        <button
-          onClick={handleSearchButtonClick}
-          className="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition duration-300"
-        >
-          Search
-        </button>
       </div>
 
       <CategoryFilter onFilterChange={handleKeywordFilterChange} />

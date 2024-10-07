@@ -1,4 +1,4 @@
-import RecipeContainer from "../components/Rcontainer";
+import RecipeContainer from "../components/container";
 
 const Home = () => {
   return (
